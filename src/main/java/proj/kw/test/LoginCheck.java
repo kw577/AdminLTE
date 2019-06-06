@@ -1,7 +1,6 @@
 package proj.kw.test;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,16 +9,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class Login
+ * Servlet implementation class LoginCheck
  */
-@WebServlet("/login")
-public class Login extends HttpServlet {
+@WebServlet("/loginCheck")
+public class LoginCheck extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Login() {
+    public LoginCheck() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,9 +28,7 @@ public class Login extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		request.getRequestDispatcher("/admin/dashboard/login.jsp").forward(request, response);;
-		
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -41,6 +38,26 @@ public class Login extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
+		
+		
+		
+		System.out.println("\n\nemail: "+ email);
+		System.out.println("passwword: "+ password);
+		
+		if(email.equals("admin@email.com") && password.equals("pass1")) {
+			
+			System.out.println("\n\nUser logged in !!!");
+			HttpSession session = request.getSession();
+			session.setAttribute("userName", email);
+			response.sendRedirect("http://localhost:8080/AdminLTE/welcome");
+			
+			//response.sendRedirect("http://localhost:8080/AdminLTE/");
+		}else {
+			response.sendRedirect("http://localhost:8080/AdminLTE/login");
+			System.out.println("\n\nLogin failed!!!");
+		}
 		
 	}
 
