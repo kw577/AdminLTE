@@ -1,0 +1,13 @@
+CREATE DATABASE admin_lte;
+USE admin_lte;
+
+CREATE TABLE `users` (
+	`id`			INT UNSIGNED NOT NULL AUTO_INCREMENT,
+	`name` 			VARCHAR(20) NOT NULL,
+	`email` 		VARCHAR(20) NOT NULL,
+	`password` 		VARCHAR(20) NOT NULL,
+	`role`		 	VARCHAR(20) NOT NULL,
+	
+	PRIMARY KEY (`id`)
+
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;

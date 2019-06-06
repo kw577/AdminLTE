@@ -1,0 +1,4 @@
+INSERT INTO users (name, email, password, role) VALUES ('Admin', 'admin@email.com', 'pass1', 'admin');
+INSERT INTO users (name, email, password, role) VALUES ('Jan', 'jan@email.com', 'pass2', 'user');
+INSERT INTO users (name, email, password, role) VALUES ('Adam', 'adam@email.com', 'pass2', 'user');
+INSERT INTO users (name, email, password, role) VALUES ('Marek', 'marek@email.com', 'pass2', 'user');
