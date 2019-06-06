@@ -6,19 +6,18 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class DashboardServlet
+ * Servlet implementation class Logout
  */
-@WebServlet("/admin/dashboard")
-public class DashboardServlet extends HttpServlet {
+@WebServlet("/logout")
+public class Logout extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DashboardServlet() {
+    public Logout() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,17 +27,7 @@ public class DashboardServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		HttpSession session = request.getSession();
-		
-		if(session.getAttribute("role")!=null) {
-			request.getRequestDispatcher("dashboard/index.jsp").forward(request, response);
-		}
-		else {
-			response.sendRedirect("http://localhost:8080/AdminLTE/login");
-		}
-		
-	
+		request.getRequestDispatcher("/admin/dashboard/logout.jsp").forward(request, response);
 	}
 
 	/**

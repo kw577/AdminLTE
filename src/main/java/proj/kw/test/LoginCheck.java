@@ -78,6 +78,7 @@ public class LoginCheck extends HttpServlet {
 				System.out.println("\n\nAdmin logged in !!!");
 				HttpSession session = request.getSession();
 				session.setAttribute("userName", email);
+				session.setAttribute("role", "admin");
 				response.sendRedirect("http://localhost:8080/AdminLTE/welcome");
 				
 				//response.sendRedirect("http://localhost:8080/AdminLTE/");

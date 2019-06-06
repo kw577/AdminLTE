@@ -22,6 +22,12 @@
   	<description></description>
   	<servlet-class>proj.kw.test.WelcomePage</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>Logout</servlet-name>
+  	<display-name>Logout</display-name>
+  	<description></description>
+  	<servlet-class>proj.kw.test.Logout</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>Login</servlet-name>
   	<url-pattern>/Login</url-pattern>
@@ -33,6 +39,10 @@
   <servlet-mapping>
   	<servlet-name>WelcomePage</servlet-name>
   	<url-pattern>/WelcomePage</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Logout</servlet-name>
+  	<url-pattern>/Logout</url-pattern>
   </servlet-mapping>
 
   <welcome-file-list>
