@@ -23,7 +23,52 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
-  <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/admin/dist/css/skins/skin-blue.min.css">
+        
+        
+        
+  
+         
+        
+        
+        
+        
+        
+        
+       <%
+       String colorSettings = request.getParameter("colors");
+    	
+   		//System.out.println("Color: " + value);
+        if ("1".equals(colorSettings)) {      	
+    %>
+      
+      <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/admin/dist/css/skins/skin-blue.min.css">
+      
+    <%
+        } 
+        else if ("2".equals(colorSettings)) {
+    %>
+       <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/admin/dist/css/skins/skin-yellow.min.css">
+       
+    <%
+        } 
+        else  {
+    %>
+       <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/admin/dist/css/skins/skin-green.min.css">
+           
+       
+    <%
+        }
+    %> 
+        
+        
+        
+        
+        
+        
+        
+        
+        
+  
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -56,7 +101,40 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="hold-transition skin-blue sidebar-mini">
+
+
+ 
+
+    <%
+    	String value = request.getParameter("colors");
+   		//System.out.println("Color: " + value);
+        if ("1".equals(colorSettings)) {      	
+    %>
+      
+      <body class="hold-transition skin-blue sidebar-mini">
+      
+    <%
+        } 
+        else if ("2".equals(colorSettings)) {
+    %>
+       <body class="hold-transition skin-yellow sidebar-mini">
+       
+    <%
+        } 
+        else  {
+    %>
+       <body class="hold-transition skin-green sidebar-mini">
+           
+       
+    <%
+        }
+    %>
+
+
+
+
+
+
 
 <%
 	String nick = 	session.getAttribute("userName").toString();
@@ -263,7 +341,9 @@ desired effect
         </div>
       </form>
       <!-- /.search form -->
-
+		
+			
+		
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">HEADER</li>
@@ -281,7 +361,53 @@ desired effect
             <li><a href="#">Link in level 2</a></li>
           </ul>
         </li>
+        
+        
+        
       </ul>
+      
+      
+      
+      
+      		<form action="" method="get" class="sidebar-form">
+
+				<div class="input-group" style="color: white; font-size: 14px;]">
+					<fieldset>
+
+						<legend style="color: white;">Colours</legend>
+
+
+
+						<div ><input type="radio" value="1" id="colors" name="colors" > <label for="colors">Blue</label></div>
+						<div><label><input type="radio" value="2" name="colors">Orange</label></div>
+						<div><label><input type="radio" value="3" name="colors">Green</label></div>
+					</fieldset>	
+				</div>
+
+
+
+				<div class="input-group-btn">
+					<!--przycisk wyslania formularza -->
+					<input type="submit" value="OK" class="btn btn-flat">
+
+				</div>
+
+			</form>		
+      
+       <h1>${param.color}</h1>
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
       <!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
