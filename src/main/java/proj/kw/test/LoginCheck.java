@@ -79,7 +79,7 @@ public class LoginCheck extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setAttribute("userName", email);
 				session.setAttribute("role", "admin");
-				response.sendRedirect("http://localhost:8080/AdminLTE/welcome");
+				response.sendRedirect("http://localhost:8080/AdminLTE");
 				
 				//response.sendRedirect("http://localhost:8080/AdminLTE/");
 			}else {
