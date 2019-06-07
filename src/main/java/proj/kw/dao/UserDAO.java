@@ -31,7 +31,7 @@ public class UserDAO {
     try 
     {
       Connection con = getConnection();
-      PreparedStatement stmt = con.prepareStatement("select * from USER where role='user'");
+      PreparedStatement stmt = con.prepareStatement("select * from users where role='user'");
       resultSet = stmt.executeQuery();
     } 
     catch (Exception e) 
@@ -47,7 +47,9 @@ public class UserDAO {
         User user = new User();
         user.setId(resultSet.getInt(1));
         user.setName(resultSet.getString(2));
-        user.setEmail(resultSet.getString(4));
+        user.setEmail(resultSet.getString(3));
+        user.setPassword(resultSet.getString(4));
+        user.setRole(resultSet.getString(5));
         li.add(user);
       }
     } 
