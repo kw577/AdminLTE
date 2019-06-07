@@ -32,7 +32,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         
         
         
-  
+  <script src="${pageContext.request.contextPath }/assets/admin/ckeditor3/ckeditor.js"></script>
        
         
         
@@ -453,6 +453,41 @@ desired effect
               <div class="box">
                 <div class="box-header">
 					<h1>Add Article</h1>
+					
+						<form id="newArticle" method="post" action="">
+							<div class="form-group">
+								<input type="text" class = "form-control" id="title" name="title" placeholder="Enter article title">
+							
+							
+							</div>
+							<div class="form-group">
+								<input type="text" class = "form-control" id="author" name="author" placeholder="Enter author name">
+							
+							
+							</div>
+							<div class="form-group">
+								     <textarea name="editor1" id="editor1" rows="10" cols="80">
+				                			Write your article here.
+				            		</textarea>
+							
+							</div>
+							<div class="form-group">
+								     <input type="submit" value="Add article" class = "btn btn-success btn-block" id="saveArticle" name="saveArticle" >
+							
+							
+							</div>
+				       
+				            
+				            
+				            
+				            <script>
+				                // Replace the <textarea id="editor1"> with a CKEditor
+				                // instance, using default configuration.
+				                CKEDITOR.replace( 'editor1' );
+				            </script>
+				        </form>
+					
+					
                 </div>
                 <!-- /.box-body -->
               </div>
