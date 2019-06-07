@@ -359,7 +359,7 @@ desired effect
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="${pageContext.request.contextPath }/admin/dashboard/users.jsp"><i class="fa fa-link"></i> <span>Users list</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
+        <li><a href="${pageContext.request.contextPath }/admin/dashboard/newArticle.jsp"><i class="fa fa-link"></i> <span>New Article</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
             <span class="pull-right-container">
