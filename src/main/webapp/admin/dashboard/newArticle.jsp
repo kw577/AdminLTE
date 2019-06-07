@@ -453,8 +453,7 @@ desired effect
               <div class="box">
                 <div class="box-header">
 					<h1>Add Article</h1>
-					
-						<form id="newArticle" method="post" action="">
+						<form action="checkArticle.jsp" id="articleForm" method="post">
 							<div class="form-group">
 								<input type="text" class = "form-control" id="title" name="title" placeholder="Enter article title">
 							
@@ -466,7 +465,7 @@ desired effect
 							
 							</div>
 							<div class="form-group">
-								     <textarea name="editor1" id="editor1" rows="10" cols="80">
+								     <textarea name="description" id="description" rows="10" cols="80">
 				                			Write your article here.
 				            		</textarea>
 							
@@ -483,7 +482,7 @@ desired effect
 				            <script>
 				                // Replace the <textarea id="editor1"> with a CKEditor
 				                // instance, using default configuration.
-				                CKEDITOR.replace( 'editor1' );
+				                CKEDITOR.replace( 'description' );
 				            </script>
 				        </form>
 					
