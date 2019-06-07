@@ -101,4 +101,23 @@ public class UserDAO {
     
     return li;
   }
+  
+  //dodawanie nowego uzytkownika - typu user (nie dodano jeszcze pola role do formularza rejestracji)
+  public static int addUser(User u) {
+	    int status = 0;
+	    try {
+	      Connection con = getConnection();
+	      PreparedStatement stmt = con.prepareStatement("insert into users (name,email,password,role) values (?,?,?,?)");
+	      stmt.setString(1, u.getName());
+	      stmt.setString(2, u.getEmail());
+	      stmt.setString(3, u.getPassword());
+	      stmt.setString(4, "user");
+	      status = stmt.executeUpdate();
+	    } catch (Exception e) {
+	      System.out.println(e);
+	    }
+	    return status;
+	  }
+  
+  
 }
