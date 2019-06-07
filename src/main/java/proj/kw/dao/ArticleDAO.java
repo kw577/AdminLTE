@@ -42,4 +42,44 @@ public class ArticleDAO {
 	  }
   
   
+  
+  
+  public static List<Article> getArticles() 
+  {
+    ResultSet resultSet = null;
+
+    try 
+    {
+      Connection con = getConnection();
+      PreparedStatement stmt = con.prepareStatement("select * from articles");
+      resultSet = stmt.executeQuery();
+    } 
+    catch (Exception e) 
+    {
+      System.out.println(e);
+    }
+    List<Article> li = new ArrayList<Article>();
+
+    try 
+    {
+      while (resultSet.next()) 
+      {
+        Article article = new Article();
+        article.setId(resultSet.getInt(1));
+        article.setTitle(resultSet.getString(2));
+        article.setAuthor(resultSet.getString(3));
+        article.setDescription(resultSet.getString(4));
+ 
+        li.add(article);
+      }
+    } 
+    catch (SQLException e) 
+    {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+  return li;
+  }
+  
+  
 }

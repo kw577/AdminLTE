@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" isELIgnored="false"%>
-<%@page import="proj.kw.dao.UserDAO"%>
-<%@page import="proj.kw.dto.User"%>  
+<%@page import="proj.kw.dao.ArticleDAO"%>
+<%@page import="proj.kw.dto.Article"%>  
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@page import="java.util.*"%>  
 
@@ -32,7 +32,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         
         
         
-  <script src="${pageContext.request.contextPath }/assets/admin/ckeditor3/ckeditor.js"></script>
+  
        
         
         
@@ -363,7 +363,7 @@ desired effect
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="${pageContext.request.contextPath }/admin/dashboard/users.jsp"><i class="fa fa-link"></i> <span>Users list</span></a></li>
         <li><a href="${pageContext.request.contextPath }/admin/dashboard/newArticle.jsp"><i class="fa fa-link"></i> <span>New Article</span></a></li>
-        <li><a href="${pageContext.request.contextPath }/admin/dashboard/showArticles.jsp"><i class="fa fa-link"></i> <span>Show Articles</span></a></li>
+        <li><a href="${pageContext.request.contextPath }/admin/dashboard/showArticles.jsp"><i class="fa fa-link"></i> <span>Show Articles</span></a></li> 
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
             <span class="pull-right-container">
@@ -453,41 +453,46 @@ desired effect
             <div class="col-xs-12">
               <div class="box">
                 <div class="box-header">
-					<h1>Add Article</h1>
-						<form action="checkArticle.jsp" id="articleForm" method="post">
-							<div class="form-group">
-								<input type="text" class = "form-control" id="title" name="title" placeholder="Enter article title">
-							
-							
-							</div>
-							<div class="form-group">
-								<input type="text" class = "form-control" id="author" name="author" placeholder="Enter author name">
-							
-							
-							</div>
-							<div class="form-group">
-								     <textarea name="description" id="description" rows="10" cols="80">
-				                			Write your article here.
-				            		</textarea>
-							
-							</div>
-							<div class="form-group">
-								     <input type="submit" value="Add article" class = "btn btn-success btn-block" id="saveArticle" name="saveArticle" >
-							
-							
-							</div>
-				       
-				            
-				            
-				            
-				            <script>
-				                // Replace the <textarea id="editor1"> with a CKEditor
-				                // instance, using default configuration.
-				                CKEDITOR.replace( 'description' );
-				            </script>
-				        </form>
-					
-					
+                  <h3 class="box-title">List of articles</h3>
+    
+                  <div class="box-tools">
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                      <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+    
+                      <div class="input-group-btn">
+                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body table-responsive no-padding">
+                  <table class="table table-hover">
+                    <tr>
+                      <th>ID</th>
+                      <th>Title</th>
+                      <th>Author</th>
+                      <th>Description</th>
+                    </tr>
+                    <%
+                    List<Article> list=ArticleDAO.getArticles();  
+                    request.setAttribute("list",list);  
+                    %>
+                    <c:forEach items="${list}" var="article">
+                    <tr>
+                        <th><c:out value="${article.getId()}"/></th>
+                    
+        
+                        <th><c:out value="${article.getTitle()}"/></th>
+                    
+                    
+                        <th><c:out value="${article.getAuthor()}"/></th>
+                    
+                    	<th>${article.getDescription()}</th>
+                    	
+                    </c:forEach>
+                    
+                  </table>
                 </div>
                 <!-- /.box-body -->
               </div>
