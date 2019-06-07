@@ -1,0 +1,18 @@
+
+https://www.youtube.com/watch?v=bcjL580ALL8
+
+https://www.youtube.com/watch?v=D0OfTZuIDcs
+
+https://www.youtube.com/watch?v=UWrzeaBBURY
+https://www.youtube.com/watch?v=rBg8YfiVXVo
+
+https://www.programmergate.com/pass-data-servlet-jsp/    - przekazywanie danych z servletow do .jsp
+
+https://www.javatpoint.com/registration-form-in-jsp    - dodanie uzytkownika (kod w stronie .jsp)
+
+https://www.scalablepath.com/blog/using-quill-js-build-wysiwyg-editor-website/   - edytor tekstowy Quill
+https://www.youtube.com/watch?v=JZ_3WRN0Owg
+
+https://www.elated.com/adding-wysiwyg-editor-to-your-site/   - CK editor !!!
+https://www.youtube.com/watch?v=JZ_3WRN0Owg   - CK editor full example !!! (playlist)
+https://www.youtube.com/watch?v=rhCTWFAThAk
